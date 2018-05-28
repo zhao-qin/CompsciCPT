@@ -18,10 +18,6 @@ screen = pygame.display.set_mode(scr_size)
 clock = pygame.time.Clock()
 pygame.display.set_caption("CPT Test")
 
-jump_sound = pygame.mixer.Sound('sprites/jump.wav')
-die_sound = pygame.mixer.Sound('sprites/die.wav')
-checkPoint_sound = pygame.mixer.Sound('sprites/checkPoint.wav')
-
 def load_image(
     name,
     sizex=-1,
@@ -39,27 +35,6 @@ def load_image(
 
     if sizex != -1 or sizey != -1:
         image = pygame.transform.scale(image, (sizex, sizey))
-
-    return (image, image.get_rect())
-
-def load_sprite_sheet(
-        sheetname,
-        nx,
-        ny,
-        scalex = -1,
-        scaley = -1,
-        colorkey = None,
-        ):
-    fullname = os.path.join('sprites',sheetname)
-    sheet = pygame.image.load(fullname)
-    sheet = sheet.convert()
-
-    sheet_rect = sheet.get_rect()
-
-    sprites = []
-
-    sizex = sheet_rect.width/nx
-    sizey = sheet_rect.height/ny
 
     for i in range(0,ny):
         for j in range(0,nx):
@@ -107,3 +82,5 @@ def extractDigits(number):
             digits.append(0)
         digits.reverse()
         return digits
+
+def lose(contact)
